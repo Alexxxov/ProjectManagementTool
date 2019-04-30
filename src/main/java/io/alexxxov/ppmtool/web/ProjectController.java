@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * Created by Admin on 25.04.2019.
@@ -32,7 +30,7 @@ public class ProjectController {
     @PostMapping("")
     public ResponseEntity<?> createNewProject(@Valid @RequestBody Project project, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidationErrorService.mapValidationService(result);
-        if (result != null)
+        if (errorMap != null)
             return errorMap;
 
         Project project1 = projectService.saveOrUpdateProject(project);
