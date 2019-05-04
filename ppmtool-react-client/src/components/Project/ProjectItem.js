@@ -14,7 +14,8 @@ class ProjectItem extends Component {
                       <p>Project to create a Kanban Board with Spring Boot and React</p>
                   </div>
                   <div className="col-md-4 d-none d-lg-block">
-                      <ul className="list-group">
+                      <ul className=
+                      "list-group">
                           <a href="#">
                               <li className="list-group-item board">
                                   <i className="fa fa-flag-checkered pr-1"> Project Board </i>
