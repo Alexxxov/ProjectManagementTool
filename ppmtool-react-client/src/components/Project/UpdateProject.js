@@ -92,11 +92,6 @@ class UpdateProject extends Component {
                             <input name="projectIdentifier" value={this.state.projectIdentifier} onChange={this.onChange} type="text" 
                             className={classnames("form-control form-control-lg", {"is-invalid":errors.projectIdentifier})} placeholder="Unique Project ID"
                                 disabled />
-                                {errors.projectIdentifier && (
-                                    <div className="invalid-feedback">
-                                       {errors.projectIdentifier}
-                                    </div>
-                                )}
                         </div>
                         <div className="form-group">
                             <textarea name="description" value={this.state.description} onChange={this.onChange} 
