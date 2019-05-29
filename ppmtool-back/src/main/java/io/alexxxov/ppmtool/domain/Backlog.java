@@ -3,6 +3,8 @@ package io.alexxxov.ppmtool.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Admin on 27.05.2019.
@@ -23,8 +25,10 @@ public class Backlog {
     @JoinColumn(name = "project_id", nullable = false)
     @JsonIgnore
     private Project project;
-    //OneToMany projectTasks
 
+    //OneToMany projectTasks
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "backlog")
+    private List<ProjectTask> projectTasks = new ArrayList<>();
 
     public Backlog() {
     }
@@ -59,5 +63,13 @@ public class Backlog {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public List<ProjectTask> getProjectTasks() {
+        return projectTasks;
+    }
+
+    public void setProjectTasks(List<ProjectTask> projectTasks) {
+        this.projectTasks = projectTasks;
     }
 }
